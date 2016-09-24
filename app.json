@@ -6,7 +6,38 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "wx-github-feed",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#9A9A9A",
+    "selectedColor": "#4078c0",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "Feed",
+        "iconPath": "img/tab/feed.png",
+        "selectedIconPath": "img/tab/feed1.png"
+      },
+      {
+        "pagePath": "pages/explore/explore",
+        "text": "Explore",
+        "iconPath": "img/tab/explore.png",
+        "selectedIconPath": "img/tab/explore1.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "Famous",
+        "iconPath": "img/tab/famous.png",
+        "selectedIconPath": "img/tab/famous1.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "Me",
+        "iconPath": "img/tab/me.png",
+        "selectedIconPath": "img/tab/me1.png"
+      }
+    ]
   }
 }
