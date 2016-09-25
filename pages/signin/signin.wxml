@@ -1,0 +1,6 @@
+<view class="container col">
+  <form>
+    <input placeholder="username" auto-focus/>
+    <button formType="submit" type="primary" size="mini">Go</button>
+  </form>
+</view>

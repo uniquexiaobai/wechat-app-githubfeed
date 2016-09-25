@@ -1,5 +1,3 @@
-<view class="container">
-  <view class="usermotto">
-    <text>Me</text>
-  </view>
+<view class="container center">
+  <text>Me</text>
 </view>

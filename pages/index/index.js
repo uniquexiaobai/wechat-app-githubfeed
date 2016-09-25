@@ -12,8 +12,12 @@ Page({
       url: '../logs/logs'
     })
   },
+  goRouteSignIn: function() {
+    wx.navigateTo({
+      url: '../signin/signin'
+    });
+  },
   onLoad: function () {
-    console.log('onLoad')
     var that = this
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function(userInfo){
@@ -23,4 +27,4 @@ Page({
       })
     })
   }
-})
+});

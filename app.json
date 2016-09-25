@@ -1,7 +1,11 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/explore/explore",
+    "pages/famous/famous",
+    "pages/me/me",
+    "pages/logs/logs",
+    "pages/signin/signin"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -27,13 +31,13 @@
         "selectedIconPath": "img/tab/explore1.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/famous/famous",
         "text": "Famous",
         "iconPath": "img/tab/famous.png",
         "selectedIconPath": "img/tab/famous1.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/me/me",
         "text": "Me",
         "iconPath": "img/tab/me.png",
         "selectedIconPath": "img/tab/me1.png"
