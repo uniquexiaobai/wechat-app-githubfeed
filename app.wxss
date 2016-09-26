@@ -1,16 +1,24 @@
 .container {
   display: flex;
   height: 100%;
-  padding: 200rpx 0;
   box-sizing: border-box;
 }
-.center {
-  align-items: center;
-  justify-content: center;
+.flex {
+  display: flex;
 }
 .row {
   flex-direction: row;
 }
 .col {
   flex-direction: column;
+}
+.align_center {
+  align-items: center;
+}
+.justify_center {
+  justify-content: center;
+}
+.center {
+  align-items: center;
+  justify-content: center;
 }
