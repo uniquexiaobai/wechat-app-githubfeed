@@ -16,8 +16,8 @@
   margin-right: 10px;
 }
 .icon {
-  width: 15px;
-  height: 15px;
+  width: 35rpx;
+  height: 35rpx;
   margin-right: 20px;
 }
 .icon-right {

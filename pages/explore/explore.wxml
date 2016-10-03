@@ -1,3 +1,14 @@
-<view class="container center">
-  <text>Explore</text>
+<view class="container">
+  <view>
+    <picker bindchange="bindLanguagePickerChange" value="{{languageIndex}}" range="{{languageArray}}">
+      <view class="picker">
+        挑选语言：{{languageArray[languageIndex]}}
+      </view>
+    </picker>
+    <picker bindchange="bindTabPickerChange" value="{{tabIndex}}" range="{{tabArray}}">
+      <view class="picker">
+      挑选时间：{{tabArray[tabIndex]}}
+      </view>
+    </picker>
+  </view>
 </view>

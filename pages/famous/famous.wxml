@@ -1,3 +1,14 @@
-<view class="container center">
-  <text>Famous</text>
+<view class="container">
+  <view>
+    <picker bindchange="bindLocationPickerChange" value="{{locationIndex}}" range="{{locationArray}}">
+      <view class="picker">
+        挑选地区：{{locationArray[locationIndex]}}
+      </view>
+    </picker>
+    <picker bindchange="bindLanguagePickerChange" value="{{languageIndex}}" range="{{languageArray}}">
+      <view class="picker">
+        挑选语言：{{languageArray[languageIndex]}}
+      </view>
+    </picker>
+  </view>
 </view>
