@@ -1,4 +1,5 @@
 .me {
+  height: 100%;
   background: #F0EFF5;
 }
 .item {

@@ -5,15 +5,6 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs);
-
-    console.log(wx.getStorageSync('user'));
-    var user = wx.getStorageSync('user') || [];
-
-    if(!user) {
-      wx.navigateTo({
-        url: '../signin/signin'
-      });
-    }
   },
 
 })

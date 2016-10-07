@@ -9,7 +9,7 @@
     <text class="flex1">Edit Profile</text>
     <image src="/img/me/angle-right.png" class="icon-right"></image>
   </view>
-  <view class="item">
+  <view class="item" bindtap="goRouteSettings">
     <image src="/img/me/cog.png" class="icon"></image>
     <text class="flex1">Settings</text>
     <image src="/img/me/angle-right.png" class="icon-right"></image>
