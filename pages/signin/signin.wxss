@@ -1,0 +1,16 @@
+.octocat {
+  flex: 1;
+  width: 400rpx;
+  height: 400rpx;
+}
+.signin {
+  width: 95%;
+}
+.input {
+  padding: 10rpx;
+  border-bottom: 1rpx solid #1AAD19;
+  margin-bottom: 20rpx;
+}
+.placeholder {
+  font-size: 20rpx;
+}

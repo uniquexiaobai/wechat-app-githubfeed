@@ -1,6 +1,7 @@
-<view class="container col">
-  <form>
-    <input placeholder="username" auto-focus/>
-    <button formType="submit" type="primary" size="mini">Go</button>
+<view class="container col align_center">
+  <image class="octocat" mode="aspectFit" src="/img/octocat.png"></image>
+  <form class="col signin" bindsubmit="handleSigninSubmit">
+    <input class="input" name="username" placeholder="请填写 GitHub 用户名" placeholder-class="placeholder"/>
+    <button class="btn" formType="submit" type="primary" size="mini">Go</button>
   </form>
 </view>
