@@ -1,15 +1,17 @@
 .container {
   display: flex;
-  height: 100%;
+  width: 100%;
   box-sizing: border-box;
 }
 .flex {
   display: flex;
 }
 .row {
+  display: flex;
   flex-direction: row;
 }
 .col {
+  display: flex;
   flex-direction: column;
 }
 .align_center {
