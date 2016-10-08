@@ -1,9 +1,9 @@
 
-var app = getApp();
+const app = getApp();
 
 Page({
   handleSigninSubmit(e) {
-    var user = { username: e.detail.value.username };
+    const user = { username: e.detail.value.username };
     wx.setStorageSync('user', user);
     wx.navigateTo({
       url: '../index/index'

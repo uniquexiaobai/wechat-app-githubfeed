@@ -1,6 +1,8 @@
 
-var app = getApp();
-var services = require('../../utils/services.js');
+const app = getApp();
+const services = require('../../utils/services.js');
+
+const basic_url = 'http://trending.codehub-app.com/v2/trending?since=';
 
 Page({
   data: {
@@ -11,14 +13,16 @@ Page({
     loading_hidden: true
   },
 
-  onLoad: function(options) {
-    var basic_url = 'http://trending.codehub-app.com/v2/trending?since=daily';
-
+  onLoad(options) {
     this.setData({
       loading_hidden: false
     });
+    const url = basic_url + this.data.tabArray[this.data.tabIndex];
+    this.fetchReposData(url);
+  },
 
-    services.fetchApi(basic_url).then(res => {
+  fetchReposData(url) {
+    services.fetch(url).then(res => {
       this.setData({
         items: res.data,
         loading_hidden: true
@@ -26,38 +30,26 @@ Page({
     });
   },
 
-  bindLanguagePickerChange: function(e) {
+  handleLanguagePickerChange(e) {
     this.setData({
       languageIndex: e.detail.value,
       loading_hidden: false
     });
-    var basic_url = 'http://trending.codehub-app.com/v2/trending?since=';
-    var url = '';
+    let url = '';
     if (this.data.languageIndex === 0) {
       url = basic_url + this.data.tabArray[this.data.tabIndex];
     } else {
-      url = basic_url + this.data.tabArray[this.data.tabIndex] + '&language=' + this.data.languageArray[this.data.languageIndex].toLowerCase();
+      url = `${basic_url}${this.data.tabArray[this.data.tabIndex]}&language=${this.data.languageArray[this.data.languageIndex].toLowerCase()}`;
     }
-    services.fetchApi(url).then(res => {
-      this.setData({
-        items: res.data,
-        loading_hidden: true
-      });
-    });
+    this.fetchReposData(url);
   },
 
-  bindTabPickerChange: function(e) {
+  handleTabPickerChange(e) {
     this.setData({
       tabIndex: e.detail.value,
       loading_hidden: false
     });
-    var basic_url = 'http://trending.codehub-app.com/v2/trending?since=';
-    var url = basic_url + this.data.tabArray[this.data.tabIndex];
-    services.fetchApi(url).then(res => {
-      this.setData({
-        items: res.data,
-        loading_hidden: true
-      });
-    });
+    const url = basic_url + this.data.tabArray[this.data.tabIndex];
+    this.fetchReposData(url);
   }
 });

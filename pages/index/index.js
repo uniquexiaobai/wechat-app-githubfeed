@@ -1,31 +1,28 @@
-//index.js
-//获取应用实例
-var app = getApp();
+const app = getApp();
 
 Page({
   data: {
     motto: 'Feed',
-    userInfo: {}
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  goRouteSignIn: function() {
-    wx.navigateTo({
-      url: '../signin/signin'
-    });
-  },
-  onLoad: function () {
-    var user = wx.getStorageSync('user');
 
-    console.log(user);
-    if(!user) {
+  onLoad() {
+    console.log(wx.getStorageSync('user'));
+    if(!wx.getStorageSync('user')) {
       wx.navigateTo({
         url: '../signin/signin'
       });
     }
+  },
+
+  bindViewTap() {
+    wx.navigateTo({
+      url: '../logs/logs'
+    })
+  },
+
+  goRouteSignIn() {
+    wx.navigateTo({
+      url: '../signin/signin'
+    });
   }
 });

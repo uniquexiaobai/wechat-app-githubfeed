@@ -3,12 +3,12 @@
     玩命加载中...
   </loading>
   <view class="col famous">
-    <picker bindchange="bindLocationPickerChange" value="{{locationIndex}}" range="{{locationArray}}">
+    <picker bindchange="handleLocationPickerChange" value="{{locationIndex}}" range="{{locationArray}}">
       <view class="picker">
         挑选地区：{{locationArray[locationIndex]}}
       </view>
     </picker>
-    <picker bindchange="bindLanguagePickerChange" value="{{languageIndex}}" range="{{languageArray}}">
+    <picker bindchange="handleLanguagePickerChange" value="{{languageIndex}}" range="{{languageArray}}">
       <view class="picker">
         挑选语言：{{languageArray[languageIndex]}}
       </view>

@@ -1,6 +1,8 @@
 
-var app = getApp();
-var services = require('../../utils/services.js');
+const app = getApp();
+const services = require('../../utils/services.js');
+
+const basic_url = 'https://api.github.com/search/users?q=';
 
 Page({
   data: {
@@ -11,15 +13,17 @@ Page({
     loading_hidden: true
   },
 
-  onLoad: function(options) {
-    var basic_url = 'https://api.github.com/search/users?q=location:China+language:ActionScript&sort=followers&page=1';
-
+  onLoad(options) {
     this.setData({
       loading_hidden: false
     });
 
-    services.fetchApi(basic_url).then(res => {
-      console.log(res.data);
+    const url = `${basic_url}language:${this.data.languageArray[this.data.languageIndex]}&sort=followers&page=1`;
+    this.fetchUsersData(url);
+  },
+
+  fetchUsersData(url) {
+    services.fetch(url).then(res => {
       this.setData({
         items: res.data.items,
         loading_hidden: true
@@ -27,43 +31,30 @@ Page({
     });
   },
 
-  bindLocationPickerChange: function(e) {
+  handleLocationPickerChange(e) {
     this.setData({
       locationIndex: e.detail.value,
       loading_hidden: false
     });
-    var basic_url = 'https://api.github.com/search/users?q=';
-    var url = '';
+    let url = '';
     if (this.data.locationIndex === 0) {
-      url = basic_url + 'language:' + this.data.languageArray[this.data.languageIndex] + '&sort=followers&page=1';
+      url = `${basic_url}language:${this.data.languageArray[this.data.languageIndex]}&sort=followers&page=1`;
     } else {
-      url = basic_url + 'location:' + this.data.locationArray[this.data.locationIndex] + '+language:' + this.data.languageArray[this.data.languageIndex] + '&sort=followers&page=1';
+      url = `${basic_url}location:${this.data.locationArray[this.data.locationIndex]}+language:${this.data.languageArray[this.data.languageIndex]}&sort=followers&page=1`;
     }
-    console.log(url);
-    services.fetchApi(url).then(res => {
-      this.setData({
-        items: res.data.items,
-        loading_hidden: true
-      });
-    });
+    this.fetchUsersData(url);
   },
 
-  bindLanguagePickerChange: function(e) {
+  handleLanguagePickerChange(e) {
     this.setData({
       languageIndex: e.detail.value,
       loading_hidden: false
     });
-    var basic_url = 'https://api.github.com/search/users?q=';
-    var url = basic_url + 'location:' + this.data.locationArray[this.data.locationIndex] + '+language:' + this.data.languageArray[this.data.languageIndex] + '&sort=followers&page=1';
-    services.fetchApi(url).then(res => {
-      this.setData({
-        items: res.data.items,
-        loading_hidden: true
-      });
-    });
+    const url = `${basic_url}location:${this.data.locationArray[this.data.locationIndex]}+language:${this.data.languageArray[this.data.languageIndex]}&sort=followers&page=1`;
+    this.fetchUsersData(url);
   },
 
-  loadMore: function() {
+  loadMore() {
     console.log('loadMore');
   }
 });

@@ -1,8 +1,8 @@
 
 Page({
-  handleLogoutTap: function() {
+  handleLogoutTap() {
     wx.clearStorageSync();
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../signin/signin'
     });
   }

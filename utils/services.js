@@ -1,6 +1,6 @@
 
 module.exports = {
-  fetchApi: function(url) {
+  fetch(url) {
     return new Promise((resolve, reject) => {
       wx.request({
         url: url,
