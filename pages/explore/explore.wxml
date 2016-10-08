@@ -2,7 +2,7 @@
   <loading hidden="{{loading_hidden}}" bindchange="loadingChange">
     玩命加载中...
   </loading>
-  <view class="flex col explore">
+  <view class="col explore">
     <picker bindchange="bindLanguagePickerChange" mode="selector" value="{{languageIndex}}" range="{{languageArray}}">
       <view class="picker">
         挑选语言：{{languageArray[languageIndex]}}
@@ -13,8 +13,8 @@
       挑选时间：{{tabArray[tabIndex]}}
       </view>
     </picker>
-    <block wx:for="{{itmes}}">
-      <view class="flex row repo_item">
+    <block wx:for="{{items}}">
+      <view class="row repo_item">
         <image class="avatar" mode="aspectFit" src="{{item.owner.avatar_url}}"></image>
         <view class="repo_item_center">
           <text class="full_name">{{item.full_name}}</text>

@@ -1,5 +1,7 @@
 
-var app = getApp()
+var app = getApp();
+var services = require('../../utils/services.js');
+
 Page({
   data: {
     languageArray: ['All Language', 'HTML', 'CSS', 'JavaScript', 'C', 'Java', 'PHP', 'Python', 'Ruby', 'Swift'],
@@ -16,25 +18,10 @@ Page({
       loading_hidden: false
     });
 
-    this.fetchApi(basic_url).then(res => {
+    services.fetchApi(basic_url).then(res => {
       this.setData({
-        itmes: res.data,
+        items: res.data,
         loading_hidden: true
-      });
-    });
-  },
-
-  fetchApi: function(url) {
-    return new Promise((resolve, reject) => {
-      wx.request({
-        url: url,
-        method: 'GET',
-        data: {},
-        header: {
-          'Accept': 'application/json'
-        },
-        success: resolve,
-        fail: reject
       });
     });
   },
@@ -51,9 +38,9 @@ Page({
     } else {
       url = basic_url + this.data.tabArray[this.data.tabIndex] + '&language=' + this.data.languageArray[this.data.languageIndex].toLowerCase();
     }
-    this.fetchApi(url).then(res => {
+    services.fetchApi(url).then(res => {
       this.setData({
-        itmes: res.data,
+        items: res.data,
         loading_hidden: true
       });
     });
@@ -66,9 +53,9 @@ Page({
     });
     var basic_url = 'http://trending.codehub-app.com/v2/trending?since=';
     var url = basic_url + this.data.tabArray[this.data.tabIndex];
-    this.fetchApi(url).then(res => {
+    services.fetchApi(url).then(res => {
       this.setData({
-        itmes: res.data,
+        items: res.data,
         loading_hidden: true
       });
     });

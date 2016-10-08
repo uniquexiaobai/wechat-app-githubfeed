@@ -1,5 +1,8 @@
 <view class="container">
-  <view>
+  <loading hidden="{{loading_hidden}}" bindchange="loadingChange">
+    玩命加载中...
+  </loading>
+  <view class="col famous">
     <picker bindchange="bindLocationPickerChange" value="{{locationIndex}}" range="{{locationArray}}">
       <view class="picker">
         挑选地区：{{locationArray[locationIndex]}}
@@ -10,5 +13,13 @@
         挑选语言：{{languageArray[languageIndex]}}
       </view>
     </picker>
+    <scroll-view scroll-y="true" class="scroll_view" bindscrolltolower="loadMore">
+      <block wx:for="{{items}}">
+        <view class="row user_item">
+          <image class="avatar" mode="aspectFit" src="{{item.avatar_url}}"></image>
+          <text class="username">{{item.login}}</text>
+        </view>
+      </block>
+    </scroll-view>
   </view>
 </view>

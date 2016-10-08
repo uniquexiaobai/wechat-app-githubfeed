@@ -1,0 +1,21 @@
+.container {
+  height: 100%;
+}
+.famous {
+  flex: 1;
+}
+picker {
+  height: 5%;
+}
+.user_item {
+  padding: 10rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+.avatar {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+}
+.scroll_view {
+  height: 90%;
+}
