@@ -1,0 +1,10 @@
+<view class="container col align_center">
+  <image class="octocat" mode="aspectFit" src="{{avatar_url}}"></image>
+  <view class="error_view">
+    <text hidden="{{error_msg_hidden}}" class="error_text"> Not Found </text>
+  </view>
+  <form class="col onboard" bindsubmit="handleOnboardSubmit">
+    <input class="input" name="username" bindinput="handleInputChange" placeholder="请填写 GitHub 用户名" placeholder-class="placeholder"/>
+    <button class="btn" formType="submit" type="primary" size="mini">Go</button>
+  </form>
+</view>

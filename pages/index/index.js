@@ -6,10 +6,11 @@ Page({
   },
 
   onLoad() {
-    console.log(wx.getStorageSync('user'));
-    if(!wx.getStorageSync('user')) {
+    const user = wx.getStorageSync('user');
+    console.log(user);
+    if(!user) {
       wx.navigateTo({
-        url: '../signin/signin'
+        url: '../auth/onboard/onboard'
       });
     }
   },
@@ -22,7 +23,7 @@ Page({
 
   goRouteSignIn() {
     wx.navigateTo({
-      url: '../signin/signin'
+      url: '../auth/onboard/onboard'
     });
   }
 });

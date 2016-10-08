@@ -1,9 +1,17 @@
 .octocat {
+  margin-top: 50rpx;
   flex: 1;
   width: 400rpx;
   height: 400rpx;
 }
-.signin {
+.error_view {
+  height: 50rpx;
+}
+.error_text {
+  font-size: 30rpx;
+  color: #f00;
+}
+.onboard {
   width: 95%;
 }
 .input {

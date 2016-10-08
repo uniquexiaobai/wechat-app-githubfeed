@@ -6,7 +6,7 @@
     "pages/me/me",
     "pages/settings/settings",
     "pages/logs/logs",
-    "pages/signin/signin"
+    "pages/auth/onboard/onboard"
   ],
   "window":{
     "backgroundTextStyle":"light",
