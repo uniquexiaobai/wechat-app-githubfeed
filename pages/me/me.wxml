@@ -1,7 +1,7 @@
 <view class="container col me">
   <view class="item">
     <image src="{{avatar_url}}" class="avatar"></image>
-    <text class="flex1">{{login}}</text>
+    <text class="flex1">{{username}}</text>
     <image src="/img/me/angle-right.png" class="icon-right"></image>
   </view>
   <view class="item">

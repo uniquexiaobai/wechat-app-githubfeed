@@ -3,8 +3,19 @@ const app = getApp();
 
 Page({
   data: {
-    login: 'uniquexiaobai',
-    avatar_url: "https://avatars.githubusercontent.com/u/12796673?v=3"
+    username: '',
+    avatar_url: ""
+  },
+
+  onReady() {
+    const user = wx.getStorageSync('user');
+    
+    if (user) {
+      this.setData({
+        username: user.username,
+        avatar_url: user.avatar_url
+      })
+    }
   },
 
   goRouteSettings() {

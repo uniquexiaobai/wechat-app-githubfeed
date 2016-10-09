@@ -16,6 +16,18 @@ function formatNumber(n) {
   return n[1] ? n : '0' + n
 }
 
-module.exports = {
-  formatTime: formatTime
+function debounce(func, wait) {
+  var timeout, context, args;
+  return function() {
+    context = this;
+    args = arguments;
+    if (timeout) clearTimeout(timeout);
+    timeout = setTimeout(function() {
+      func.apply(context, args);
+    }, wait);
+  }
 }
+
+module.exports = {
+  debounce: debounce
+};
