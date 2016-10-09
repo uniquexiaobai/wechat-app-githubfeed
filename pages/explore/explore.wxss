@@ -1,5 +1,14 @@
+.container {
+  height: 100%;
+}
 .explore {
   flex: 1;
+}
+picker {
+  height: 5%;
+}
+.scroll_view {
+  height: 90%;
 }
 .repo_item {
   padding: 10rpx;

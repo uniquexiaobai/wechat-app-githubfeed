@@ -13,7 +13,7 @@
         挑选语言：{{languageArray[languageIndex]}}
       </view>
     </picker>
-    <scroll-view scroll-y="true" class="scroll_view" bindscrolltolower="loadMore">
+    <scroll-view scroll-y="true" class="scroll_view" bindscrolltolower="loadMoreData" bindscrolltoupper="refreshData">
       <block wx:for="{{items}}">
         <view class="row user_item">
           <image class="avatar" mode="aspectFit" src="{{item.avatar_url}}"></image>

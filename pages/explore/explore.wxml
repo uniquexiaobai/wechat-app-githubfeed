@@ -13,15 +13,17 @@
       挑选时间：{{tabArray[tabIndex]}}
       </view>
     </picker>
-    <block wx:for="{{items}}">
-      <view class="row repo_item">
-        <image class="avatar" mode="aspectFit" src="{{item.owner.avatar_url}}"></image>
-        <view class="repo_item_center">
-          <text class="full_name">{{item.full_name}}</text>
-          <text class="language">{{item.language ? item.language : ''}}</text>
+    <scroll-view scroll-y="true" class="scroll_view" bindscrolltoupper="refreshData">
+      <block wx:for="{{items}}">
+        <view class="row repo_item">
+          <image class="avatar" mode="aspectFit" src="{{item.owner.avatar_url}}"></image>
+          <view class="repo_item_center">
+            <text class="full_name">{{item.full_name}}</text>
+            <text class="language">{{item.language ? item.language : ''}}</text>
+          </view>
+          <view class="stargazers_count">{{item.stargazers_count}}</view>
         </view>
-        <view class="stargazers_count">{{item.stargazers_count}}</view>
-      </view>
-    </block>
+      </block>
+    </scroll-view>
   </view>
 </view>
