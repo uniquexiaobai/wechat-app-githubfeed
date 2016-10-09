@@ -1,20 +1,41 @@
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.container {
+  height: 100%;
+  background: rgba(255,255,255,0.8);
+}
+scroll-view {
+  width: 100%;
+  height: 100%;
+}
+.received_events {
+  border-bottom: 1rpx solid #ccc;
+  padding: 15rpx;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.received_event_top {
+  color: #5D5D5D;
+}
+.actor_avatar {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 30rpx;
+}
+.actor_name {
+  color: #6491CC;
+}
+.action_time {
+  color: #B8B8B8;
+  font-size: 8rpx;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.received_event_bottom {
+  margin-top: 10rpx;
 }
-
-.routes {
-  display: flex;
+.action_type {
+  font-size: 25rpx;
+  font-weight: bold;
+  margin-right: 20rpx;
+}
+.action_repo {
+  font-size: 16rpx;
+  color: #6491CC;
 }

@@ -1,5 +1,5 @@
 <view class="container">
-  <loading hidden="{{loading_hidden}}" bindchange="loadingChange">
+  <loading hidden="{{loading_hidden}}">
     玩命加载中...
   </loading>
   <view class="col famous">

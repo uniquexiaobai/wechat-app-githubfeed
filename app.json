@@ -5,7 +5,6 @@
     "pages/famous/famous",
     "pages/me/me",
     "pages/settings/settings",
-    "pages/logs/logs",
     "pages/auth/onboard/onboard"
   ],
   "window":{

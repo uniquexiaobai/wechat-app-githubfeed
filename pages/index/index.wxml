@@ -1,9 +1,22 @@
 <view class="container col">
-  <view bindtap="bindViewTap" class="userinfo">
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    <text>{{motto}}</text>
-  </view>
-  <view class="routes">
-    <button bindtap="goRouteSignIn" type="primary" size="mini">SignIn</button>
-  </view>
+  <loading hidden="{{loading_hidden}}" bindchange="loadingChange">
+    玩命加载中...
+  </loading>
+  <scroll-view scroll-y="true" bindscrolltolower="loadMoreData" bindscrolltoupper="refreshData">
+    <block wx:for="{{items}}">
+      <view class="col received_events">
+        <view class="row received_event_top">
+          <image class="actor_avatar" mode="aspectFit" src="{{item.actor.avatar_url}}"></image>
+          <view class="col">
+            <view class="actor_name">{{item.actor.display_login}}</view>
+            <text class="action_time">1 hours ago</text>
+          </view>
+        </view>
+        <view class="row received_event_bottom">
+          <text class="action_type">{{item.type}}</text>
+          <view class="action_repo">{{item.repo.name}}</view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
 </view>

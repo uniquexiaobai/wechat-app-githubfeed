@@ -1,5 +1,6 @@
 .container {
   height: 100%;
+  background: rgba(255,255,255,0.8);
 }
 .explore {
   flex: 1;
