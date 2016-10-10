@@ -9,7 +9,7 @@
           <image class="actor_avatar" mode="aspectFit" src="{{item.actor.avatar_url}}"></image>
           <view class="col">
             <view class="actor_name">{{item.actor.display_login}}</view>
-            <text class="action_time">1 hours ago</text>
+            <text class="action_time">{{item.created_at}}</text>
           </view>
         </view>
         <view class="row received_event_bottom">

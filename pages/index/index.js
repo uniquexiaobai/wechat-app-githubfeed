@@ -34,9 +34,9 @@ Page({
 
   fetchEventsData (url) {
     services.fetch(url).then(res => {
-      console.log(res.data);
       res.data.forEach(item => {
         item.type = helper.formateActionType(item.type);
+        item.created_at = helper.timesAge(item.created_at);
       });
       this.setData({
         items: this.data.items.concat(res.data),
