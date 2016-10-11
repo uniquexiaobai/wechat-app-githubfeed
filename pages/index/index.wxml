@@ -14,7 +14,9 @@
         </view>
         <view class="row received_event_bottom">
           <text class="action_type">{{item.type}}</text>
-          <view class="action_repo">{{item.repo.name}}</view>
+          <navigator url="../repo/repo?repo_full_name={{item.repo.name}}">
+            <view class="action_repo">{{item.repo.name}}</view>
+          </navigator>
         </view>
       </view>
     </block>

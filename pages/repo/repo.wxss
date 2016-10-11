@@ -1,0 +1,27 @@
+.container {
+  height: 100%;
+}
+.repo_top {
+  justify-content: space-between;
+  padding: 5rpx;
+  border-bottom: 1rpx solid #CCC;
+}
+.repo_top_item {
+}
+.avatar {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
+.owner_name {
+  font-size: 20rpx;
+}
+.watch {
+  font-size: 20rpx;
+  background: #EDEDED;
+  margin-right: 10rpx;
+  padding: 5rpx;
+}
+.watch_number {
+  font-size: 20rpx;
+}

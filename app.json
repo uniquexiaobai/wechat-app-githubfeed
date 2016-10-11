@@ -5,13 +5,15 @@
     "pages/famous/famous",
     "pages/me/me",
     "pages/settings/settings",
-    "pages/auth/onboard/onboard"
+    "pages/auth/onboard/onboard",
+    "pages/repo/repo"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "wx-github-feed",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle":"white",
+    "navigationBarBackgroundColor": "#4078C0"
   },
   "tabBar": {
     "color": "#9A9A9A",
