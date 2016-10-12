@@ -3,21 +3,23 @@
     玩命加载中...
   </loading>
   <view class="col famous">
-    <picker bindchange="handleLocationPickerChange" value="{{locationIndex}}" range="{{locationArray}}">
-      <view class="picker">
-        挑选地区：{{locationArray[locationIndex]}}
-      </view>
-    </picker>
-    <picker bindchange="handleLanguagePickerChange" value="{{languageIndex}}" range="{{languageArray}}">
-      <view class="picker">
-        挑选语言：{{languageArray[languageIndex]}}
-      </view>
-    </picker>
-    <scroll-view scroll-y="true" class="scroll_view" bindscrolltolower="loadMoreData" bindscrolltoupper="refreshData">
+    <view class="col pickers">
+      <picker bindchange="handleLocationPickerChange" value="{{locationIndex}}" range="{{locationArray}}">
+        <view class="picker_text">
+          挑选地区：{{locationArray[locationIndex]}}
+        </view>
+      </picker>
+      <picker bindchange="handleLanguagePickerChange" value="{{languageIndex}}" range="{{languageArray}}">
+        <view class="picker_text">
+          挑选语言：{{languageArray[languageIndex]}}
+        </view>
+      </picker>
+    </view>
+    <scroll-view scroll-y="true" bindscrolltolower="loadMoreData" bindscrolltoupper="refreshData">
       <block wx:for="{{items}}">
         <view class="row user_item">
           <image class="avatar" mode="aspectFit" src="{{item.avatar_url}}"></image>
-          <text class="username">{{item.login}}</text>
+          <text class="col justify_center username">{{item.login}}</text>
         </view>
       </block>
     </scroll-view>

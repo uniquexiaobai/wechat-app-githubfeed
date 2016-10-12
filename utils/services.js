@@ -1,5 +1,4 @@
-
-module.exports = {
+export default {
   fetch(url) {
     return new Promise((resolve, reject) => {
       wx.request({

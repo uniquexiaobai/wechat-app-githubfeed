@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/explore/explore",
     "pages/famous/famous",
@@ -8,13 +8,14 @@
     "pages/auth/onboard/onboard",
     "pages/repo/repo"
   ],
+
   "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+    "backgroundTextStyle": "light",
     "navigationBarTitleText": "wx-github-feed",
-    "navigationBarTextStyle":"white",
+    "navigationBarTextStyle": "white",
     "navigationBarBackgroundColor": "#4078C0"
   },
+
   "tabBar": {
     "color": "#9A9A9A",
     "selectedColor": "#4078c0",
@@ -23,26 +24,26 @@
       {
         "pagePath": "pages/index/index",
         "text": "Feed",
-        "iconPath": "img/tab/feed.png",
-        "selectedIconPath": "img/tab/feed1.png"
+        "iconPath": "images/tab/feed.png",
+        "selectedIconPath": "images/tab/feed1.png"
       },
       {
         "pagePath": "pages/explore/explore",
         "text": "Explore",
-        "iconPath": "img/tab/explore.png",
-        "selectedIconPath": "img/tab/explore1.png"
+        "iconPath": "images/tab/explore.png",
+        "selectedIconPath": "images/tab/explore1.png"
       },
       {
         "pagePath": "pages/famous/famous",
         "text": "Famous",
-        "iconPath": "img/tab/famous.png",
-        "selectedIconPath": "img/tab/famous1.png"
+        "iconPath": "images/tab/famous.png",
+        "selectedIconPath": "images/tab/famous1.png"
       },
       {
         "pagePath": "pages/me/me",
         "text": "Me",
-        "iconPath": "img/tab/me.png",
-        "selectedIconPath": "img/tab/me1.png"
+        "iconPath": "images/tab/me.png",
+        "selectedIconPath": "images/tab/me1.png"
       }
     ]
   }

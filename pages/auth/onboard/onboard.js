@@ -1,7 +1,6 @@
-
 const app = getApp();
-const util = require('../../../utils/util.js');
-const helper = require('../../helper/auth.js');
+import util from '../../../utils/util';
+import helpers from '../../helpers/auth';
 
 Page({
   data: {
@@ -11,26 +10,24 @@ Page({
 
   onLoad() {
     this.setData({
-      avatar_url: '/img/octocat.png'
+      avatar_url: '/images/onboard/octocat.png'
     });
   },
 
   handleOnboardSubmit(e) {
     const name = e.detail.value.username;
 
-    helper.findUserByName(name, result => {
+    helpers.findUserByName(name, result => {
       if (result) {
-        const user = {
-          username: name,
-          avatar_url: result
-        };
+        const user = { username: name, avatar_url: result };
+
         wx.setStorageSync('user', user);
         wx.navigateTo({
           url: '../../index/index'
         });
       } else {
         this.setData({
-          avatar_url: '/img/octocat.png',
+          avatar_url: '/images/onboard/octocat.png',
           error_msg_hidden: false
         });
       }
@@ -43,7 +40,7 @@ Page({
 function isUserExisted(e) {
   const name = e.detail.value;
 
-  helper.findUserByName(name, result => {
+  helpers.findUserByName(name, result => {
     if (result) {
       app.getCurrentPage().setData({
         avatar_url: result,
@@ -51,9 +48,9 @@ function isUserExisted(e) {
       });
     } else {
       app.getCurrentPage().setData({
-        avatar_url: '/img/octocat.png',
+        avatar_url: '/images/onboard/octocat.png',
         error_msg_hidden: false
       });
     }
   });
-}
+};

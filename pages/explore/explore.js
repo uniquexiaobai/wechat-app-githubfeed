@@ -1,31 +1,30 @@
-
 const app = getApp();
-const services = require('../../utils/services.js');
-
-const basic_url = 'http://trending.codehub-app.com/v2/trending?since=';
+import services from '../../utils/services';
 
 Page({
   data: {
-    languageArray: ['All Language', 'CSS', 'JavaScript', 'C', 'Java', 'PHP', 'Python', 'Ruby', 'Swift'],
+    languageArray: ['All Languages', 'C', 'CSS', 'Go', 'HTML', 'Java', 'JavaScript', 'Lua', 'Objective-C', 'Perl', 'PHP', 'Python', 'R', 'Ruby', 'Scala', 'Shell', 'Swift'],
     languageIndex: 0,
-    tabArray: ['daily', 'weekly', 'monthly'],
+    tabArray: ['Daily', 'Weekly', 'Monthly'],
     tabIndex: 0,
     loading_hidden: true
   },
 
-  onLoad (options) {
+  onLoad() {
     this.refreshData();
   },
 
-  _reloadUrl () {
+  _reloadUrl() {
     const basic_url = 'http://trending.codehub-app.com/v2/trending?since=';
-    if (this.data.languageIndex === 0) {
-      return url = basic_url + this.data.tabArray[this.data.tabIndex];
+
+    // locationIndex may be 0 or '0'
+    if (this.data.languageIndex == 0) {
+      return basic_url + this.data.tabArray[this.data.tabIndex].toLowerCase();
     }
-    return `${basic_url}${this.data.tabArray[this.data.tabIndex]}&language=${this.data.languageArray[this.data.languageIndex].toLowerCase()}`;
+    return `${basic_url}${this.data.tabArray[this.data.tabIndex].toLowerCase()}&language=${this.data.languageArray[this.data.languageIndex].toLowerCase()}`;
   },
 
-  fetchReposData (url) {
+  fetchReposData(url) {
     services.fetch(url).then(res => {
       if (res.data) {
         this.setData({
@@ -38,7 +37,7 @@ Page({
     });
   },
 
-  handleLanguagePickerChange (e) {
+  handleLanguagePickerChange(e) {
     this.setData({
       languageIndex: e.detail.value,
       loading_hidden: false
@@ -46,7 +45,7 @@ Page({
     this.fetchReposData(this._reloadUrl());
   },
 
-  handleTabPickerChange (e) {
+  handleTabPickerChange(e) {
     this.setData({
       tabIndex: e.detail.value,
       loading_hidden: false
@@ -54,7 +53,7 @@ Page({
     this.fetchReposData(this._reloadUrl());
   },
 
-  refreshData () {
+  refreshData() {
     this.setData({
       loading_hidden: false
     });

@@ -3,22 +3,24 @@
     玩命加载中...
   </loading>
   <view class="col explore">
-    <picker bindchange="handleLanguagePickerChange" mode="selector" value="{{languageIndex}}" range="{{languageArray}}">
-      <view class="picker">
-        挑选语言：{{languageArray[languageIndex]}}
-      </view>
-    </picker>
-    <picker bindchange="handleTabPickerChange" value="{{tabIndex}}" range="{{tabArray}}">
-      <view class="picker">
-      挑选时间：{{tabArray[tabIndex]}}
-      </view>
-    </picker>
-    <scroll-view scroll-y="true" class="scroll_view" bindscrolltoupper="refreshData">
+    <view class="col pickers">
+      <picker bindchange="handleLanguagePickerChange" mode="selector" value="{{languageIndex}}" range="{{languageArray}}">
+        <view class="picker_text">
+          挑选语言：{{languageArray[languageIndex]}}
+        </view>
+      </picker>
+      <picker bindchange="handleTabPickerChange" value="{{tabIndex}}" range="{{tabArray}}">
+        <view class="picker_text">
+        挑选时间：{{tabArray[tabIndex]}}
+        </view>
+      </picker>
+    </view>
+    <scroll-view scroll-y="true" bindscrolltoupper="refreshData">
       <block wx:for="{{items}}">
         <navigator url="../repo/repo?repo_full_name={{item.full_name}}">
           <view class="row repo_item">
             <image class="avatar" mode="aspectFit" src="{{item.owner.avatar_url}}"></image>
-            <view class="repo_item_center">
+            <view class="col" style="flex: 1">
               <text class="full_name">{{item.full_name}}</text>
               <text class="language">{{item.language ? item.language : ''}}</text>
             </view>

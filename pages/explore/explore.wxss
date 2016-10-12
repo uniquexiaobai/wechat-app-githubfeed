@@ -1,35 +1,40 @@
 .container {
-  height: 100%;
   background: rgba(255,255,255,0.8);
 }
 .explore {
   flex: 1;
 }
-picker {
-  height: 5%;
+.pickers {
+  height: 15%;
+  box-sizing: border-box;
+  justify-content: space-around;
+  padding: 20rpx;
 }
-.scroll_view {
-  height: 90%;
+.picker_text {
+  font-size: 35rpx;
+}
+scroll-view {
+  height: 85%;
 }
 .repo_item {
-  padding: 10rpx;
-  border-bottom: 1rpx solid #ccc;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #E2E2E2;
 }
 .avatar {
-
-}
-.repo_item_center {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+  width: 80rpx;
+  height: 80rpx;
 }
 .full_name {
   font-size: 20rpx;
+  color: #4078c0;
 }
 .language {
-  font-size: 20rpx;
+  margin-top: 5rpx;
+  color: #9A9A9A;
+  font-size: 10rpx;
 }
 .stargazers_count {
+  color: #9A9A9A;
   font-size: 20rpx;
 }
 .avatar {

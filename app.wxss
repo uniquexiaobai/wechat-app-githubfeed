@@ -1,10 +1,12 @@
 .container {
-  display: flex;
-  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   box-sizing: border-box;
-}
-.flex {
   display: flex;
+  flex-direction: column;
 }
 .row {
   display: flex;
@@ -23,4 +25,7 @@
 .center {
   align-items: center;
   justify-content: center;
+}
+view, text {
+  font-family: 'Segoe UI', '微软雅黑';
 }

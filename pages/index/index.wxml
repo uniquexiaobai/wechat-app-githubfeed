@@ -1,18 +1,18 @@
-<view class="container col">
-  <loading hidden="{{loading_hidden}}" bindchange="loadingChange">
+<view class="container">
+  <loading hidden="{{loading_hidden}}">
     玩命加载中...
   </loading>
   <scroll-view scroll-y="true" bindscrolltolower="loadMoreData" bindscrolltoupper="refreshData">
     <block wx:for="{{items}}">
       <view class="col received_events">
-        <view class="row received_event_top">
+        <view class="row">
           <image class="actor_avatar" mode="aspectFit" src="{{item.actor.avatar_url}}"></image>
           <view class="col">
             <view class="actor_name">{{item.actor.display_login}}</view>
-            <text class="action_time">{{item.created_at}}</text>
+            <text class="created_at">{{item.created_at}}</text>
           </view>
         </view>
-        <view class="row received_event_bottom">
+        <view class="row" style="margin-top: 10rpx;">
           <text class="action_type">{{item.type}}</text>
           <navigator url="../repo/repo?repo_full_name={{item.repo.name}}">
             <view class="action_repo">{{item.repo.name}}</view>

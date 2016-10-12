@@ -1,4 +1,3 @@
-
 const app = getApp();
 
 Page({
@@ -9,17 +8,14 @@ Page({
 
   onReady() {
     const user = wx.getStorageSync('user');
-    
+
     if (user) {
-      this.setData({
-        username: user.username,
-        avatar_url: user.avatar_url
-      })
+      this.setData({ username: user.username, avatar_url: user.avatar_url });
     }
   },
 
   goRouteSettings() {
-    wx.navigateTo({
+    wx.navigateTo({ 
       url: '../settings/settings'
     });
   }

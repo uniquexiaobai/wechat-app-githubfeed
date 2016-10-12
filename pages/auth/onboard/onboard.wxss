@@ -1,6 +1,5 @@
-.octocat {
+.avatar {
   margin-top: 50rpx;
-  flex: 1;
   width: 400rpx;
   height: 400rpx;
 }
@@ -11,14 +10,19 @@
   font-size: 30rpx;
   color: #f00;
 }
-.onboard {
-  width: 95%;
+form {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx;
 }
-.input {
+input {
   padding: 10rpx;
   border-bottom: 1rpx solid #1AAD19;
   margin-bottom: 20rpx;
 }
 .placeholder {
   font-size: 20rpx;
+}
+.btn {
+  width: 100%;
 }

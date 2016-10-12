@@ -1,12 +1,11 @@
-
 const app = getApp();
-const services = require('../../utils/services.js');
+import services from '../../utils/services';
 
 Page({
   data: {
-    locationArray: ['All Country', 'China', 'USA', 'Japan', 'Australia'],
-    locationIndex: 1,
-    languageArray: ['All Language', 'CSS', 'Java', 'JavaScript', 'PHP', 'Python', 'Swift', 'C'],
+    locationArray: ['All Countries', 'Australia', 'China', 'Canada', 'France', 'Germany', 'India', 'Japan', 'UK', 'USA'],
+    locationIndex: 2,
+    languageArray: ['All Languages', 'ActionScript', 'C', 'C#', 'C++', 'Clojure', 'CoffeeScript', 'CSS', 'Go', 'Haskell', 'HTML', 'Java', 'JavaScript', 'Lua', 'Matlab', 'Objective-C', 'Objective-C++', 'Perl', 'PHP', 'Python', 'R', 'Ruby', 'Scala', 'Shell', 'Swift', 'TeX', 'VimL'],
     languageIndex: 0,
     loading_hidden: true,
     items: [],
@@ -14,22 +13,24 @@ Page({
     incomplete_results: false
   },
 
-  onLoad () {
+  onLoad() {
     this.refreshData();
   },
 
-  _reloadUrl () {
+  _reloadUrl() {
     const basic_url = 'https://api.github.com/search/users?q=';
-    if (!this.data.locationIndex) {
+
+    // locationIndex may be 0 or '0'
+    if (this.data.locationIndex == 0) {
       return `${basic_url}language:${this.data.languageArray[this.data.languageIndex]}&sort=followers&page=${this.data.page}`;
     }
-    if (!this.data.languageIndex) {
+    if (this.data.languageIndex == 0) {
       return `${basic_url}location:${this.data.locationArray[this.data.locationIndex]}&sort=followers&page=${this.data.page}`;
     }
     return `${basic_url}location:${this.data.locationArray[this.data.locationIndex]}+language:${this.data.languageArray[this.data.languageIndex]}&sort=followers&page=${this.data.page}`;
   },
 
-  _initData () {
+  _initData() {
     this.setData({
       items: [],
       page: 1,
@@ -37,7 +38,7 @@ Page({
     });
   },
 
-  fetchUsersData (url) {
+  fetchUsersData(url) {
     services.fetch(url).then(res => {
       if (res.data.items) {
         this.setData({
@@ -52,7 +53,7 @@ Page({
     });
   },
 
-  handleLocationPickerChange (e) {
+  handleLocationPickerChange(e) {
     if (this.data.languageIndex || e.detail.value) {
       this.setData({
         locationIndex: e.detail.value,
@@ -63,7 +64,7 @@ Page({
     }
   },
 
-  handleLanguagePickerChange (e) {
+  handleLanguagePickerChange(e) {
     if (this.data.locationIndex || e.detail.value) {
       this.setData({
         languageIndex: e.detail.value,
@@ -74,7 +75,7 @@ Page({
     }
   },
 
-  loadMoreData () {
+  loadMoreData() {
     if (this.data.incomplete_results) return;
     this.setData({
       loading_hidden: false,
@@ -83,7 +84,7 @@ Page({
     this.fetchUsersData(this._reloadUrl());
   },
 
-  refreshData () {
+  refreshData() {
     this.setData({
       loading_hidden: false
     });

@@ -1,4 +1,3 @@
-
 Page({
   handleLogoutTap() {
     wx.clearStorageSync();
