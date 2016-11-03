@@ -12,15 +12,15 @@ scroll-view {
 .actor_avatar {
   width: 80rpx;
   height: 80rpx;
-  margin-right: 30rpx;
+  margin-right: 20rpx;
 }
 .actor_name {
-  font-size: 20rpx;
+  font-size: 25rpx;
   color: #4078c0;
 }
 .created_at {
   margin-top: 5rpx;
-  font-size: 5rpx;
+  font-size: 20rpx;
   color: #9A9A9A;
 }
 .action_type {
@@ -30,6 +30,6 @@ scroll-view {
   color: #333333;
 }
 .action_repo {
-  font-size: 20rpx;
+  font-size: 25rpx;
   color: #4078c0;
 }

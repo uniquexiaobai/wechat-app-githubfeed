@@ -6,7 +6,8 @@
     "pages/me/me",
     "pages/settings/settings",
     "pages/auth/onboard/onboard",
-    "pages/repo/repo"
+    "pages/repo/repo",
+    "pages/user/user"
   ],
 
   "window":{

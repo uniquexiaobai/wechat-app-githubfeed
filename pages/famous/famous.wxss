@@ -5,16 +5,16 @@
   flex: 1;
 }
 .pickers {
-  height: 15%;
+  height: 13%;
   box-sizing: border-box;
   justify-content: space-around;
   padding: 20rpx;
 }
 .picker_text {
-  font-size: 35rpx;
+  font-size: 30rpx;
 }
 scroll-view {
-  height: 85%;
+  height: 87%;
 }
 .user_item {
   padding: 20rpx;
@@ -26,7 +26,7 @@ scroll-view {
   margin-right: 20rpx;
 }
 .username {
-  font-size: 30rpx;
+  font-size: 25rpx;
   font-weight: bold;
   color: #333333;
 }

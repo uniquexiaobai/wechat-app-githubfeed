@@ -16,10 +16,12 @@
       </picker>
     </view>
     <scroll-view scroll-y="true" bindscrolltoupper="refreshData">
-      <block wx:for="{{items}}">
+      <block wx:for="{{items}}" wx:key="explore">
         <navigator url="../repo/repo?repo_full_name={{item.full_name}}">
           <view class="row repo_item">
-            <image class="avatar" mode="aspectFit" src="{{item.owner.avatar_url}}"></image>
+            <navigator url="../user/user?user_name={{item.owner.login}}">
+              <image class="avatar" mode="aspectFit" src="{{item.owner.avatar_url}}"></image>
+            </navigator>
             <view class="col" style="flex: 1">
               <text class="full_name">{{item.full_name}}</text>
               <text class="language">{{item.language ? item.language : ''}}</text>

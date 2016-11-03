@@ -5,16 +5,18 @@
   flex: 1;
 }
 .pickers {
-  height: 15%;
+  height: 13%;
   box-sizing: border-box;
   justify-content: space-around;
   padding: 20rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
 }
 .picker_text {
-  font-size: 35rpx;
+  font-size: 30rpx;
 }
 scroll-view {
-  height: 85%;
+  height: 87%;
 }
 .repo_item {
   padding: 20rpx;
@@ -25,13 +27,13 @@ scroll-view {
   height: 80rpx;
 }
 .full_name {
-  font-size: 20rpx;
+  font-size: 25rpx;
   color: #4078c0;
 }
 .language {
   margin-top: 5rpx;
   color: #9A9A9A;
-  font-size: 10rpx;
+  font-size: 20rpx;
 }
 .stargazers_count {
   color: #9A9A9A;

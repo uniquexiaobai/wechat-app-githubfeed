@@ -3,22 +3,28 @@
     玩命加载中...
   </loading>
   <scroll-view scroll-y="true" bindscrolltolower="loadMoreData" bindscrolltoupper="refreshData">
-    <block wx:for="{{items}}">
-      <view class="col received_events">
-        <view class="row">
-          <image class="actor_avatar" mode="aspectFit" src="{{item.actor.avatar_url}}"></image>
-          <view class="col">
-            <view class="actor_name">{{item.actor.display_login}}</view>
-            <text class="created_at">{{item.created_at}}</text>
+    <block wx:for="{{items}}" wx:key="received_events">
+      <navigator url="../repo/repo?repo_full_name={{item.repo.name}}">
+        <view class="col received_events">
+          <view class="row">
+            <navigator url="../user/user?user_name={{item.actor.login}}">
+              <image class="actor_avatar" mode="aspectFit" src="{{item.actor.avatar_url}}"></image>
+            </navigator>
+            <view class="col">
+              <navigator url="../user/user?user_name={{item.actor.login}}">
+                <view class="actor_name">{{item.actor.display_login}}</view>
+              </navigator>
+              <text class="created_at">{{item.created_at}}</text>
+            </view>
+          </view>
+          <view class="row" style="margin-top: 10rpx;">
+            <text class="action_type">{{item.type}}</text>
+            <navigator url="../repo/repo?repo_full_name={{item.repo.name}}">
+              <view class="action_repo">{{item.repo.name}}</view>
+            </navigator>
           </view>
         </view>
-        <view class="row" style="margin-top: 10rpx;">
-          <text class="action_type">{{item.type}}</text>
-          <navigator url="../repo/repo?repo_full_name={{item.repo.name}}">
-            <view class="action_repo">{{item.repo.name}}</view>
-          </navigator>
-        </view>
-      </view>
+      </navigator>
     </block>
   </scroll-view>
 </view>

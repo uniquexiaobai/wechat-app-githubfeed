@@ -8,14 +8,14 @@
 .avatar {
   width: 50rpx;
   height: 50rpx;
-  margin-right: 10rpx;
+  margin-right: 5rpx;
 }
 .owner_name {
-  font-size: 20rpx;
+  font-size: 25rpx;
   color: #333333;
 }
 .watch {
-  font-size: 20rpx;
+  font-size: 25rpx;
   color: #333333;
   background: #F0F0F0;
   border-radius: 5rpx;
@@ -25,10 +25,10 @@
   padding-right: 10rpx;
 }
 .watch_number {
-  font-size: 20rpx;
+  font-size: 25rpx;
   color: #333333;
 }
 .repo_desc {
   padding: 20rpx;
-  font-size: 20rpx;
+  font-size: 25rpx;
 }

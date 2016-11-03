@@ -16,12 +16,12 @@ form {
   padding: 20rpx;
 }
 input {
-  padding: 10rpx;
   border-bottom: 1rpx solid #1AAD19;
   margin-bottom: 20rpx;
+  font-size: 30rpx;
 }
 .placeholder {
-  font-size: 20rpx;
+  font-size: 25rpx;
 }
 .btn {
   width: 100%;

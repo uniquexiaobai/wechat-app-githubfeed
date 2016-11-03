@@ -16,11 +16,13 @@
       </picker>
     </view>
     <scroll-view scroll-y="true" bindscrolltolower="loadMoreData" bindscrolltoupper="refreshData">
-      <block wx:for="{{items}}">
-        <view class="row user_item">
-          <image class="avatar" mode="aspectFit" src="{{item.avatar_url}}"></image>
-          <text class="col justify_center username">{{item.login}}</text>
-        </view>
+      <block wx:for="{{items}}" wx:key="famous">
+        <navigator url="../user/user?user_name={{item.login}}">
+          <view class="row user_item">
+            <image class="avatar" mode="aspectFit" src="{{item.avatar_url}}"></image>
+            <text class="col justify_center username">{{item.login}}</text>
+          </view>
+        </navigator>
       </block>
     </scroll-view>
   </view>
