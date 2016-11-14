@@ -1,7 +1,4 @@
 <view class="container">
-  <loading hidden="{{loading_hidden}}">
-    玩命加载中...
-  </loading>
   <view class="col famous">
     <view class="col pickers">
       <picker bindchange="handleLocationPickerChange" value="{{locationIndex}}" range="{{locationArray}}">
@@ -15,7 +12,7 @@
         </view>
       </picker>
     </view>
-    <scroll-view scroll-y="true" bindscrolltolower="loadMoreData" bindscrolltoupper="refreshData">
+    <scroll-view scroll-y="true" bindscrolltolower="loadMoreData">
       <block wx:for="{{items}}" wx:key="famous">
         <navigator url="../user/user?user_name={{item.login}}">
           <view class="row user_item">

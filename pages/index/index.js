@@ -5,7 +5,6 @@ import helpers from '../helpers/index';
 
 Page({
   data: {
-    loading_hidden: true,
     items: [],
     page: 1
   },
@@ -13,12 +12,16 @@ Page({
   onLoad() {
     const user = wx.getStorageSync('user');
 
-    console.log(user);
+    console.log('#user#', user);
     if (!user) {
       wx.navigateTo({
         url: '../auth/onboard/onboard'
       });
     }
+    this.refreshData();
+  },
+
+  onPullDownRefresh() {
     this.refreshData();
   },
 
@@ -42,25 +45,35 @@ Page({
         item.created_at = util.timesAgo(item.created_at);
       });
       this.setData({
-        items: this.data.items.concat(res.data),
-        loading_hidden: true
+        items: this.data.items.concat(res.data)
       });
+      this.hideLoadingToast();
     });
   },
 
   loadMoreData() {
+    this.showLoadingToast();
     this.setData({
-      page: ++this.data.page,
-      loading_hidden: false
+      page: ++this.data.page
     });
     this.fetchEventsData(this._reloadUrl());
   },
 
   refreshData() {
-    this.setData({
-      loading_hidden: false
-    });
+    this.showLoadingToast();
     this._initData();
     this.fetchEventsData(this._reloadUrl());
+  },
+
+  showLoadingToast() {
+    wx.showToast({
+      title: '玩命加载中...',
+      icon: 'loading', 
+      duration: 10000
+    });
+  },
+
+  hideLoadingToast() {
+    wx.hideToast();
   }
 });

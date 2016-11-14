@@ -14,7 +14,8 @@
     "backgroundTextStyle": "light",
     "navigationBarTitleText": "wx-github-feed",
     "navigationBarTextStyle": "white",
-    "navigationBarBackgroundColor": "#4078C0"
+    "navigationBarBackgroundColor": "#4078C0",
+    "enablePullDownRefresh": true
   },
 
   "tabBar": {

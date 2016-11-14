@@ -1,8 +1,5 @@
 <view class="container">
-  <loading hidden="{{loading_hidden}}">
-    玩命加载中...
-  </loading>
-  <scroll-view scroll-y="true" bindscrolltolower="loadMoreData" bindscrolltoupper="refreshData">
+  <scroll-view scroll-y="true" bindscrolltolower="loadMoreData">
     <block wx:for="{{items}}" wx:key="received_events">
       <navigator url="../repo/repo?repo_full_name={{item.repo.name}}">
         <view class="col received_events">

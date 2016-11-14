@@ -7,13 +7,16 @@ Page({
     locationIndex: 2,
     languageArray: ['All Languages', 'ActionScript', 'C', 'C#', 'C++', 'Clojure', 'CoffeeScript', 'CSS', 'Go', 'Haskell', 'HTML', 'Java', 'JavaScript', 'Lua', 'Matlab', 'Objective-C', 'Objective-C++', 'Perl', 'PHP', 'Python', 'R', 'Ruby', 'Scala', 'Shell', 'Swift', 'TeX', 'VimL'],
     languageIndex: 0,
-    loading_hidden: true,
     items: [],
     page: 1,
     incomplete_results: false
   },
 
   onLoad() {
+    this.refreshData();
+  },
+
+  onPullDownRefresh() {
     this.refreshData();
   },
 
@@ -47,17 +50,15 @@ Page({
           incomplete_results: res.data.incomplete_results
         });
       }
-      this.setData({
-        loading_hidden: true
-      });
+      this.hideLoadingToast();
     });
   },
 
   handleLocationPickerChange(e) {
     if (this.data.languageIndex || e.detail.value) {
+      this.showLoadingToast();
       this.setData({
-        locationIndex: e.detail.value,
-        loading_hidden: false
+        locationIndex: e.detail.value
       });
       this._initData();
       this.fetchUsersData(this._reloadUrl());
@@ -66,9 +67,9 @@ Page({
 
   handleLanguagePickerChange(e) {
     if (this.data.locationIndex || e.detail.value) {
+      this.showLoadingToast();
       this.setData({
-        languageIndex: e.detail.value,
-        loading_hidden: false
+        languageIndex: e.detail.value
       });
       this._initData();
       this.fetchUsersData(this._reloadUrl());
@@ -77,18 +78,28 @@ Page({
 
   loadMoreData() {
     if (this.data.incomplete_results) return;
+    this.showLoadingToast();
     this.setData({
-      loading_hidden: false,
       page: ++this.data.page
     });
     this.fetchUsersData(this._reloadUrl());
   },
 
   refreshData() {
-    this.setData({
-      loading_hidden: false
-    });
+    this.showLoadingToast();
     this._initData();
     this.fetchUsersData(this._reloadUrl());
+  },
+
+  showLoadingToast() {
+    wx.showToast({
+      title: '玩命加载中...',
+      icon: 'loading', 
+      duration: 10000
+    });
+  },
+
+  hideLoadingToast() {
+    wx.hideToast();
   }
 });

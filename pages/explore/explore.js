@@ -6,15 +6,18 @@ Page({
     languageArray: ['All Languages', 'C', 'CSS', 'Go', 'HTML', 'Java', 'JavaScript', 'Lua', 'Objective-C', 'Perl', 'PHP', 'Python', 'R', 'Ruby', 'Scala', 'Shell', 'Swift'],
     languageIndex: 0,
     tabArray: ['Daily', 'Weekly', 'Monthly'],
-    tabIndex: 0,
-    loading_hidden: true
+    tabIndex: 0
   },
 
   onLoad() {
     this.refreshData();
   },
 
-  _reloadUrl() {
+  onPullDownRefresh() {
+    this.refreshData();
+  },
+
+   _reloadUrl() {
     const basic_url = 'http://trending.codehub-app.com/v2/trending?since=';
 
     // locationIndex may be 0 or '0'
@@ -24,6 +27,22 @@ Page({
     return `${basic_url}${this.data.tabArray[this.data.tabIndex].toLowerCase()}&language=${this.data.languageArray[this.data.languageIndex].toLowerCase()}`;
   },
 
+  handleLanguagePickerChange(e) {
+    this.showLoadingToast();
+    this.setData({
+      languageIndex: e.detail.value
+    });
+    this.fetchReposData(this._reloadUrl());
+  },
+
+  handleTabPickerChange(e) {
+    this.showLoadingToast();
+    this.setData({
+      tabIndex: e.detail.value
+    });
+    this.fetchReposData(this._reloadUrl());
+  },
+
   fetchReposData(url) {
     services.fetch(url).then(res => {
       if (res.data) {
@@ -31,32 +50,24 @@ Page({
           items: res.data
         });
       }
-      this.setData({
-        loading_hidden: true
-      });
+      this.hideLoadingToast();
     });
-  },
-
-  handleLanguagePickerChange(e) {
-    this.setData({
-      languageIndex: e.detail.value,
-      loading_hidden: false
-    });
-    this.fetchReposData(this._reloadUrl());
-  },
-
-  handleTabPickerChange(e) {
-    this.setData({
-      tabIndex: e.detail.value,
-      loading_hidden: false
-    });
-    this.fetchReposData(this._reloadUrl());
   },
 
   refreshData() {
-    this.setData({
-      loading_hidden: false
-    });
+    this.showLoadingToast();
     this.fetchReposData(this._reloadUrl());
+  },
+
+  showLoadingToast() {
+    wx.showToast({
+      title: '玩命加载中...',
+      icon: 'loading', 
+      duration: 10000
+    });
+  },
+
+  hideLoadingToast() {
+    wx.hideToast();
   }
 });
