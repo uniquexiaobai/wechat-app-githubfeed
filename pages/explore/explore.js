@@ -44,7 +44,7 @@ Page({
   },
 
   fetchReposData(url) {
-    services.fetch(url).then(res => {
+    services.fetch(url, (err, res) => {
       if (res.data) {
         this.setData({
           items: res.data

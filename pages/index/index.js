@@ -39,14 +39,16 @@ Page({
   },
 
   fetchEventsData(url) {
-    services.fetch(url).then(res => {
-      res.data.forEach(item => {
-        item.type = helpers.formateActionType(item.type);
-        item.created_at = util.timesAgo(item.created_at);
-      });
-      this.setData({
-        items: this.data.items.concat(res.data)
-      });
+    services.fetch(url, (err, res) => {
+      if (res.data) {
+          res.data.forEach(item => {
+          item.type = helpers.formateActionType(item.type);
+          item.created_at = util.timesAgo(item.created_at);
+        });
+        this.setData({
+          items: this.data.items.concat(res.data)
+        });
+      }
       this.hideLoadingToast();
     });
   },

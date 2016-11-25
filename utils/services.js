@@ -1,5 +1,5 @@
 export default {
-  fetch(url) {
+  /*fetch(url) {
     return new Promise((resolve, reject) => {
       wx.request({
         url: url,
@@ -12,5 +12,21 @@ export default {
         fail: reject
       });
     });
+  }*/
+  fetch(url, cb) {
+    wx.request({
+      url: url,
+      method: 'GET',
+      data: {},
+      header: {
+        'Accept': 'application/json'
+      },
+      success: (res) => {
+        cb(null, res);
+      },
+      fail: (err) => {
+        cb(err);
+      }
+    })
   }
 };

@@ -22,12 +22,14 @@ Page({
   },
 
   fetchRepoData(url) {
-    services.fetch(url).then(res => {
-      this.setData({
-        repo: res.data
-      });
+    services.fetch(url, (err, res) => {
+      if (res.data) {
+         this.setData({
+          repo: res.data
+        });
+      }
       this.hideLoadingToast();
-    });
+    })
   },
 
   showLoadingToast() {

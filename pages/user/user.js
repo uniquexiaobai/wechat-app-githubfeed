@@ -26,13 +26,15 @@ Page({
   },
 
   fetchUserData(url) {
-    services.fetch(url).then(res => {
-      this.setData({
-        user: res.data
-      })
+    services.fetch(url, (err, res) => {
+      if (res.data) {
+        this.setData({
+          user: res.data
+        });
+      }
       console.log('user', res.data);
       this.hideLoadingToast();
-    });
+    })
   },
 
   showLoadingToast() {

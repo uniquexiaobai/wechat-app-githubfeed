@@ -42,8 +42,8 @@ Page({
   },
 
   fetchUsersData(url) {
-    services.fetch(url).then(res => {
-      if (res.data.items) {
+    services.fetch(url, (err, res) => {
+      if (res.data) {
         this.setData({
           items: this.data.items.concat(res.data.items),
           page: 1,
