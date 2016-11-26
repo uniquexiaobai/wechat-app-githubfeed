@@ -7,6 +7,7 @@
     "pages/settings/settings",
     "pages/auth/onboard/onboard",
     "pages/repo/repo",
+    "pages/org/org",
     "pages/user/user"
   ],
 

@@ -1,15 +1,65 @@
 .user {
-  border: 1rpx solid red;
-  padding: 20rpx;
+
 }
 .user_info {
-  border: 1rpx solid red;
+  padding: 20rpx;
+  padding-bottom: 10rpx;
+  margin-bottom: 10rpx;
+  border-bottom: 1rpx solid #E2E2E2;
 }
 .user_info_left {
-  border: 1rpx solid red;
+  padding-top: 10rpx;
   margin-right: 20rpx;  
 }
 .user_info_left image {
   width: 200rpx;
   height: 200rpx;
+}
+.user_name {
+  font-size: 35rpx;
+  font-weight: bold;
+}
+.user_login {
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+.user_company {
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+.user_location {
+  font-size: 28rpx;
+  margin-bottom: 5rpx;
+}
+.user_email {
+  font-size: 28rpx;
+  margin-bottom: 5rpx;
+}
+.user_blog {
+  font-size: 28rpx;
+  margin-bottom: 5rpx;
+}
+.user_created_at {
+  font-size: 28rpx;
+}
+
+.user_orgs {
+  font-size: 35rpx;
+  font-weight: bold;
+  padding: 20rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  margin-bottom: 20rpx;
+  border-bottom: 1rpx solid #E2E2E2;
+}
+.user_orgs_title {
+  margin-bottom: 10rpx;
+}
+.user_orgs_list {
+  flex-wrap: wrap;
+}
+.user_orgs_list__image {
+  margin: 5rpx;
+  width: 55rpx;
+  height: 55rpx;
 }

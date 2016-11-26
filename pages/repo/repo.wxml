@@ -3,15 +3,15 @@
     <view class="row repo_header">
       <view class="row align_center repo_top_item">
         <image class="avatar" mode="aspectFit" src="{{repo.owner.avatar_url}}"></image>
-        <view class="owner_name">{{repo.owner.login}}</view>
+        <view class="color_black owner_name">{{repo.owner.login}}</view>
       </view>
       <view class="row align_center repo_top_item">
         <view class="watch">Watch</view>
         <view class="watch_number">{{repo.subscribers_count}}</view>
       </view>
       <view class="row align_center repo_top_item">
-        <view class="watch">Star</view>
-        <view class="watch_number">{{repo.watchers_count}}</view>
+        <view class="color_black watch">Star</view>
+        <view class="color_black watch_number">{{repo.watchers_count}}</view>
       </view>
     </view>
     <view class="repo_desc">{{repo.description}}</view>

@@ -48,8 +48,8 @@ Page({
         this.setData({
           items: this.data.items.concat(res.data)
         });
+        this.hideLoadingToast();
       }
-      this.hideLoadingToast();
     });
   },
 

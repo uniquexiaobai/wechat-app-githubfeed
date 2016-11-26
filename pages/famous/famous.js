@@ -49,8 +49,8 @@ Page({
           page: 1,
           incomplete_results: res.data.incomplete_results
         });
+        this.hideLoadingToast();
       }
-      this.hideLoadingToast();
     });
   },
 

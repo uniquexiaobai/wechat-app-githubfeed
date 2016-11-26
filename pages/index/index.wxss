@@ -16,20 +16,16 @@ scroll-view {
 }
 .actor_name {
   font-size: 25rpx;
-  color: #4078c0;
 }
 .created_at {
   margin-top: 5rpx;
   font-size: 20rpx;
-  color: #9A9A9A;
 }
 .action_type {
   font-size: 25rpx;
   font-weight: bold;
   margin-right: 20rpx;
-  color: #333333;
 }
 .action_repo {
   font-size: 25rpx;
-  color: #4078c0;
 }

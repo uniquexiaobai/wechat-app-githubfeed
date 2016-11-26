@@ -9,15 +9,15 @@
             </navigator>
             <view class="col">
               <navigator url="../user/user?user_name={{item.actor.login}}">
-                <view class="actor_name">{{item.actor.display_login}}</view>
+                <view class="color_blue actor_name">{{item.actor.display_login}}</view>
               </navigator>
-              <text class="created_at">{{item.created_at}}</text>
+              <text class="color_gray created_at">{{item.created_at}}</text>
             </view>
           </view>
           <view class="row" style="margin-top: 10rpx;">
-            <text class="action_type">{{item.type}}</text>
+            <text class="color_black action_type">{{item.type}}</text>
             <navigator url="../repo/repo?repo_full_name={{item.repo.name}}">
-              <view class="action_repo">{{item.repo.name}}</view>
+              <view class="color_blue action_repo">{{item.repo.name}}</view>
             </navigator>
           </view>
         </view>

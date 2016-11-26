@@ -1,0 +1,10 @@
+/* color */
+.color_black {
+  color: #333333;
+}
+.color_gray {
+  color: #9A9A9A;
+}
+.color_blue {
+  color: #4078C0;
+}

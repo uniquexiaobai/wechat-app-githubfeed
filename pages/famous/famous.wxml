@@ -17,7 +17,7 @@
         <navigator url="../user/user?user_name={{item.login}}">
           <view class="row user_item">
             <image class="avatar" mode="aspectFit" src="{{item.avatar_url}}"></image>
-            <text class="col justify_center username">{{item.login}}</text>
+            <text class="col justify_center color_black username">{{item.login}}</text>
           </view>
         </navigator>
       </block>

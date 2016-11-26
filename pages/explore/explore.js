@@ -49,8 +49,8 @@ Page({
         this.setData({
           items: res.data
         });
+        this.hideLoadingToast();
       }
-      this.hideLoadingToast();
     });
   },
 

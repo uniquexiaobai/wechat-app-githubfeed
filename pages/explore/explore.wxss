@@ -28,15 +28,12 @@ scroll-view {
 }
 .full_name {
   font-size: 25rpx;
-  color: #4078c0;
 }
 .language {
   margin-top: 5rpx;
-  color: #9A9A9A;
   font-size: 20rpx;
 }
 .stargazers_count {
-  color: #9A9A9A;
   font-size: 20rpx;
 }
 .avatar {
