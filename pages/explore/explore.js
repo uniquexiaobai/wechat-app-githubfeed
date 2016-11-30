@@ -44,11 +44,9 @@ Page({
   },
 
   fetchReposData(url) {
-    services.fetch(url, (err, res) => {
+    services.fetch(url).then(res => {
       if (res.data) {
-        this.setData({
-          items: res.data
-        });
+        this.setData({ items: res.data });
         this.hideLoadingToast();
       }
     });

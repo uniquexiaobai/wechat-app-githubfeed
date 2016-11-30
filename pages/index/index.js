@@ -39,7 +39,7 @@ Page({
   },
 
   fetchEventsData(url) {
-    services.fetch(url, (err, res) => {
+    services.fetch(url).then(res => {
       if (res.data) {
           res.data.forEach(item => {
           item.type = helpers.formateActionType(item.type);

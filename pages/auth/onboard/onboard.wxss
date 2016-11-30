@@ -23,6 +23,3 @@ input {
 .placeholder {
   font-size: 25rpx;
 }
-.btn {
-  width: 100%;
-}

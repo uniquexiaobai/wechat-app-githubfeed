@@ -14,7 +14,7 @@
         <view class="color_black user_created_at">{{user.created_at}}</view>
       </view>
     </view>
-    <view class="col user_orgs">
+    <view wx:if="{{user.orgs.length}}" class="col user_orgs">
       <view class="color_black user_orgs_title">Organizations</view>
       <view class="row user_orgs_list">
         <block wx:for="{{user.orgs}}" wx:key="{{user.id}}">
@@ -25,7 +25,7 @@
       </view>
     </view>
     <view class="follow_btn">
-      <button type="primary">Follow</button>
+      <button class="btn" type="primary" size="mini">Follow</button>
     </view>
     <view class="user_follow">
       user_follow

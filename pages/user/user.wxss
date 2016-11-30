@@ -63,3 +63,7 @@
   width: 55rpx;
   height: 55rpx;
 }
+
+.follow_btn {
+  padding: 0 20rpx;
+}

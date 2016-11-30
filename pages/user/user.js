@@ -26,19 +26,19 @@ Page({
   },
 
   fetchUserData(url) {
-    services.fetch(url, (err, res) => {
+    const self = this;
+    let user;
+    services.fetch(url).then(res => {
       if (res.data) {
-        const user = res.data;
-        const self = this;
-        services.fetch(user.organizations_url, (err, res) => {
-          if (res.data) {
-            user.orgs = res.data;
-            self.setData({
-              user: user
-            });
-            self.hideLoadingToast();
-          }
-        });
+        user = res.data;
+        return services.fetch(user.organizations_url);
+      }
+    }).then(res => {
+      if (res.data) {
+        user.orgs = res.data;
+        console.log(user.orgs);
+        self.setData({ user: user });
+        self.hideLoadingToast();
       }
     });
   },
