@@ -9,8 +9,6 @@
   box-sizing: border-box;
   justify-content: space-around;
   padding: 20rpx;
-  padding-top: 10rpx;
-  padding-bottom: 10rpx;
 }
 .picker_text {
   font-size: 30rpx;

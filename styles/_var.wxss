@@ -8,3 +8,7 @@
 .color_blue {
   color: #4078C0;
 }
+
+.borderColor {
+  color: #E2E2E2;
+}

@@ -17,13 +17,13 @@
   margin-right: 10px;
 }
 .icon {
-  width: 35rpx;
-  height: 35rpx;
+  width: 48rpx;
+  height: 48rpx;
   margin-right: 20px;
 }
 .icon-right {
-  width: 20px;
-  height: 20px;
+  width: 48rpx;
+  height: 48rpx;
   margin-right: -15rpx;
 }
 .flex1 {

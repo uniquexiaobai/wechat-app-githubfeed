@@ -1,17 +1,19 @@
 <view class="container col me">
+  <navigator url="../user/user?user_name={{user.username}}">
+    <view class="item">
+      <image src="{{user.avatar_url}}" class="avatar" />
+      <text class="flex1">{{user.username}}</text>
+      <image src="/images/me/angle-right.png" class="icon-right" />
+    </view>
+  </navigator>
   <view class="item">
-    <image src="{{avatar_url}}" class="avatar"></image>
-    <text class="flex1">{{username}}</text>
-    <image src="/images/me/angle-right.png" class="icon-right"></image>
-  </view>
-  <view class="item">
-    <image src="/images/me/edit.png" class="icon"></image>
+    <image src="/images/me/edit_blue.png" class="icon" />
     <text class="flex1">Edit Profile</text>
-    <image src="/images/me/angle-right.png" class="icon-right"></image>
+    <image src="/images/me/angle-right.png" class="icon-right" />
   </view>
   <view class="item" bindtap="goRouteSettings">
-    <image src="/images/me/cog.png" class="icon"></image>
+    <image src="/images/me/cog_blue.png" class="icon" />
     <text class="flex1">Settings</text>
-    <image src="/images/me/angle-right.png" class="icon-right"></image>
+    <image src="/images/me/angle-right.png" class="icon-right" />
   </view>
 </view>

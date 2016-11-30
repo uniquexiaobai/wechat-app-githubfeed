@@ -1,14 +1,14 @@
 <view class="container">
   <view class="col explore">
     <view class="col pickers">
-      <picker bindchange="handleLanguagePickerChange" mode="selector" value="{{languageIndex}}" range="{{languageArray}}">
+      <picker bindchange="handleLanguagePickerChange" value="{{languageIndex}}" range="{{languageArray}}">
         <view class="picker_text">
           挑选语言：{{languageArray[languageIndex]}}
         </view>
       </picker>
       <picker bindchange="handleTabPickerChange" value="{{tabIndex}}" range="{{tabArray}}">
         <view class="picker_text">
-        挑选时间：{{tabArray[tabIndex]}}
+          挑选时间：{{tabArray[tabIndex]}}
         </view>
       </picker>
     </view>

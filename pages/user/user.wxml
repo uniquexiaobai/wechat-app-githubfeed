@@ -1,19 +1,21 @@
 <view class="container">
-  <view class="col user">
+  <view class="user">
     <view class="row user_info">
       <view class="user_info_left">
         <image mode="aspectFit" src="{{user.avatar_url}}" />
       </view>
       <view class="col user_info_right">
-        <view class="color_black user_name">{{user.name}}</view>
+        <view wx:if="{{!!user.name}}" class="color_black user_name">{{user.name}}</view>
         <view class="color_gray user_login">{{user.login}}</view>
-        <view class="color_black user_company">{{user.company}}</view>
-        <view class="color_black user_location">{{user.location}}</view>
-        <view class="color_blue user_email">{{user.email}}</view>
-        <view class="color_blue user_blog">{{user.blog}}</view>
-        <view class="color_black user_created_at">{{user.created_at}}</view>
+        <view wx:if="{{true}}" class="row color_black user_company"><image src="/images/user/company.png" class="icon-info"/>{{user.company}}</view>
+        <!-- user.location === 'null' -->
+        <view wx:if="{{!!user.location}}" class="row color_black user_location"><image src="/images/user/location.png" class="icon-info"/>{{user.location}}</view>
+        <view wx:if="{{!!user.email}}" class="row color_blue user_email"><image src="/images/user/email.png" class="icon-info"/>{{user.email}}</view>
+        <view wx:if="{{!!user.blog}}" class="row color_blue user_blog"><image src="/images/user/blog.png" class="icon-info"/>{{user.blog}}</view>
+        <view class="row color_black user_created_at"><image src="/images/user/time.png" class="icon-info"/>{{user.created_at}}</view>
       </view>
     </view>
+
     <view wx:if="{{user.orgs.length}}" class="col user_orgs">
       <view class="color_black user_orgs_title">Organizations</view>
       <view class="row user_orgs_list">
@@ -24,11 +26,41 @@
         </block>
       </view>
     </view>
-    <view class="follow_btn">
+
+    <view class="user_status">
       <button class="btn" type="primary" size="mini">Follow</button>
+      <view class="row user_status_info">
+        <view class="col center user_status_info__view">
+          <view class="color_black">{{user.followers}}</view>
+          <text class="color_gray">Followers</text>
+        </view>
+        <view class="col center user_status_info__view">
+          <view class="color_black">718</view>
+          <text class="color_gray">Starred</text>
+        </view>
+        <view class="col center user_status_info__view">
+          <view class="color_black">{{user.following}}</view>
+          <text class="color_gray">Following</text>
+        </view>
+      </view>
     </view>
-    <view class="user_follow">
-      user_follow
+
+    <view class="user_repos">
+      <block wx:for="{{user.repos}}" wx:key="user_repos">
+        <navigator url="../repo/repo?repo_full_name={{item.full_name}}">
+          <view class="row user_repo">
+            <image src="{{item.fork ? '/images/user/repo_fork.png' : '/images/user/repo.png'}}" class="icon-repo" />
+            <view class="col user_repo_center">
+              <view class="color_blue user_repo_name">{{item.name}}</view>
+              <view class="color_gray user_repo_desc">{{item.description || ''}}</view>
+            </view>
+            <view class="col user_repo_right">
+              <view class="color_gray user_repo_language">{{item.language || ''}}</view>
+              <view class="color_gray user_repo_star_count">{{item.stargazers_count}}<image src="/images/user/star.png" class="icon-star"/></view>
+            </view>
+          </view>
+        </navigator>
+      </block>
     </view>
   </view>
 </view>
