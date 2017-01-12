@@ -35,7 +35,7 @@
           <text class="color_gray">Followers</text>
         </view>
         <view class="col center user_status_info__view">
-          <view class="color_black">718</view>
+          <view class="color_black">0</view>
           <text class="color_gray">Starred</text>
         </view>
         <view class="col center user_status_info__view">

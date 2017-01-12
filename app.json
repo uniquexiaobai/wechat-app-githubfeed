@@ -12,41 +12,42 @@
   ],
 
   "window":{
-    "backgroundTextStyle": "light",
-    "navigationBarTitleText": "github-feed",
-    "navigationBarTextStyle": "white",
     "navigationBarBackgroundColor": "#4078C0",
+    "navigationBarTitleText": "Github Feed",
+    "navigationBarTextStyle": "white",
+    "backgroundTextStyle": "light",
     "enablePullDownRefresh": true
   },
 
   "tabBar": {
     "color": "#9A9A9A",
     "selectedColor": "#4078c0",
+    "backgroundColor": "#F7F7FA",
     "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "Feed",
         "iconPath": "images/tab/index.png",
-        "selectedIconPath": "images/tab/index_blue.png"
+        "selectedIconPath": "images/tab/index@active.png"
       },
       {
         "pagePath": "pages/explore/explore",
         "text": "Explore",
         "iconPath": "images/tab/explore.png",
-        "selectedIconPath": "images/tab/explore_blue.png"
+        "selectedIconPath": "images/tab/explore@active.png"
       },
       {
         "pagePath": "pages/famous/famous",
         "text": "Famous",
         "iconPath": "images/tab/famous.png",
-        "selectedIconPath": "images/tab/famous_blue.png"
+        "selectedIconPath": "images/tab/famous@active.png"
       },
       {
         "pagePath": "pages/me/me",
         "text": "Me",
         "iconPath": "images/tab/me.png",
-        "selectedIconPath": "images/tab/me_blue.png"
+        "selectedIconPath": "images/tab/me@active.png"
       }
     ]
   }

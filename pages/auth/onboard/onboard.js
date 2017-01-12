@@ -14,6 +14,14 @@ Page({
     });
   },
 
+  onShareAppMessage: function(){
+    return {
+      title: 'Github Feed',
+      desc: '你的另一个 GitHub 客户端',
+      path: '/pages/auth/onboard/onboard'
+    };
+  },
+
   handleOnboardSubmit(e) {
     const name = e.detail.value.username;
 
@@ -22,8 +30,8 @@ Page({
         const user = { username: name, avatar_url: result };
 
         wx.setStorageSync('user', user);
-        wx.navigateTo({
-          url: '../../index/index'
+        wx.switchTab({
+          url: '../../index/index',
         });
       } else {
         this.setData({
@@ -41,13 +49,15 @@ function isUserExisted(e) {
   const name = e.detail.value;
 
   helpers.findUserByName(name, result => {
+    const currentPage = getCurrentPages()[getCurrentPages().length - 1];
+
     if (result) {
-      app.getCurrentPage().setData({
+      currentPage.setData({
         avatar_url: result,
         error_msg_hidden: true
       });
     } else {
-      app.getCurrentPage().setData({
+      currentPage.setData({
         avatar_url: '/images/onboard/octocat.png',
         error_msg_hidden: false
       });

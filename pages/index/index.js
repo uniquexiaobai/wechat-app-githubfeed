@@ -14,11 +14,12 @@ Page({
 
     console.log('#user#', user);
     if (!user) {
-      wx.navigateTo({
+      wx.redirectTo({
         url: '../auth/onboard/onboard'
       });
+    } else {
+      this.refreshData();
     }
-    this.refreshData();
   },
 
   onPullDownRefresh() {
@@ -69,7 +70,7 @@ Page({
 
   showLoadingToast() {
     wx.showToast({
-      title: '玩命加载中...',
+      title: 'Loading',
       icon: 'loading', 
       duration: 10000
     });

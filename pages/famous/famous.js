@@ -93,7 +93,7 @@ Page({
 
   showLoadingToast() {
     wx.showToast({
-      title: '玩命加载中...',
+      title: 'Loading',
       icon: 'loading', 
       duration: 10000
     });
