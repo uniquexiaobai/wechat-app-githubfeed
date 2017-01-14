@@ -28,7 +28,6 @@ Page({
   },
 
   handleLanguagePickerChange(e) {
-    this.showLoadingToast();
     this.setData({
       languageIndex: e.detail.value
     });
@@ -36,7 +35,6 @@ Page({
   },
 
   handleTabPickerChange(e) {
-    this.showLoadingToast();
     this.setData({
       tabIndex: e.detail.value
     });
@@ -44,6 +42,7 @@ Page({
   },
 
   fetchReposData(url) {
+    this.showLoadingToast();
     services.fetch(url).then(res => {
       if (res.data) {
         this.setData({ items: res.data });
@@ -53,7 +52,6 @@ Page({
   },
 
   refreshData() {
-    this.showLoadingToast();
     this.fetchReposData(this._reloadUrl());
   },
 

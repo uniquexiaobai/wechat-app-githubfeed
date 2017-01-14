@@ -42,6 +42,7 @@ Page({
   },
 
   fetchUsersData(url) {
+    this.showLoadingToast();
     services.fetch(url).then(res => {
       if (res.data) {
         this.setData({
@@ -56,7 +57,6 @@ Page({
 
   handleLocationPickerChange(e) {
     if (this.data.languageIndex || e.detail.value) {
-      this.showLoadingToast();
       this.setData({
         locationIndex: e.detail.value
       });
@@ -67,7 +67,6 @@ Page({
 
   handleLanguagePickerChange(e) {
     if (this.data.locationIndex || e.detail.value) {
-      this.showLoadingToast();
       this.setData({
         languageIndex: e.detail.value
       });
@@ -78,7 +77,6 @@ Page({
 
   loadMoreData() {
     if (this.data.incomplete_results) return;
-    this.showLoadingToast();
     this.setData({
       page: ++this.data.page
     });
@@ -86,7 +84,6 @@ Page({
   },
 
   refreshData() {
-    this.showLoadingToast();
     this._initData();
     this.fetchUsersData(this._reloadUrl());
   },

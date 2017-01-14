@@ -7,7 +7,6 @@ Page({
     });
 
     const user_url = `https://api.github.com/users/${this.data.user_name}`;
-    this.showLoadingToast();
     this.fetchUserData(user_url);
   },
 
@@ -18,9 +17,9 @@ Page({
   },
 
   fetchUserData(url) {
-    const self = this;
     let user;
 
+    this.showLoadingToast();
     services.fetch(url).then(res => {
       if (res.data) {
         user = res.data;
@@ -35,8 +34,8 @@ Page({
       if (res.data) {
         user.repos = res.data;
         console.log('#user#', user);
-        self.setData({ user: user });
-        self.hideLoadingToast();
+        this.setData({ user: user });
+        this.hideLoadingToast();
       }
     });
   },

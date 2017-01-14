@@ -2,10 +2,10 @@ import services from '../../utils/services';
 
 Page({
   onLoad(options) {
-    this.showLoadingToast();
     this.setData({
       repo_full_name: options.repo_full_name
     });
+    
     this.fetchRepoData(this._reloadUrl());
   },
 
@@ -22,6 +22,7 @@ Page({
   },
 
   fetchRepoData(url) {
+    this.showLoadingToast();
     services.fetch(url).then(res => {
       if (res.data) {
         this.setData({ repo: res.data });

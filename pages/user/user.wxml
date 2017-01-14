@@ -30,18 +30,24 @@
     <view class="user_status">
       <button class="btn" type="primary" size="mini">Follow</button>
       <view class="row user_status_info">
-        <view class="col center user_status_info__view">
-          <view class="color_black">{{user.followers}}</view>
-          <text class="color_gray">Followers</text>
-        </view>
+        <navigator url="../follower/follower?login={{user.login}}">
+          <view class="col center user_status_info__view">
+            <view class="color_black">{{user.followers}}</view>
+            <text class="color_gray">Followers</text>
+          </view>
+        </navigator>
+        
         <view class="col center user_status_info__view">
           <view class="color_black">0</view>
           <text class="color_gray">Starred</text>
         </view>
-        <view class="col center user_status_info__view">
-          <view class="color_black">{{user.following}}</view>
-          <text class="color_gray">Following</text>
-        </view>
+
+        <navigator url="../following/following?login={{user.login}}">
+          <view class="col center user_status_info__view">
+            <view class="color_black">{{user.following}}</view>
+            <text class="color_gray">Following</text>
+          </view>
+        </navigator>
       </view>
     </view>
 

@@ -4,7 +4,6 @@ import helpers from '../../helpers/auth';
 
 Page({
   data: {
-    avatar_url: '',
     error_msg_hidden: true
   },
 

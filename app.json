@@ -8,7 +8,9 @@
     "pages/auth/onboard/onboard",
     "pages/repo/repo",
     "pages/org/org",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/follower/follower",
+    "pages/following/following"
   ],
 
   "window":{
