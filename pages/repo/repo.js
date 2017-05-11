@@ -1,4 +1,4 @@
-import services from '../../utils/services';
+import { fetch } from '../../utils/services';
 
 Page({
   onLoad(options) {
@@ -23,23 +23,24 @@ Page({
 
   fetchRepoData(url) {
     this.showLoadingToast();
-    services.fetch(url).then(res => {
-      if (res.data) {
+    fetch(url).then(res => {
+      if (res.statusCode === 200) {
         this.setData({ repo: res.data });
-        this.hideLoadingToast();
+      } else {
+        console.log('# Request Error #', res);
       }
+      this.hideLoadingToast();
     });
   },
 
   showLoadingToast() {
-    wx.showToast({
+    wx.showLoading({
       title: 'Loading',
-      icon: 'loading', 
-      duration: 10000
+      mask: true
     });
   },
 
   hideLoadingToast() {
-    wx.hideToast();
+    wx.hideLoading();
   }
 });

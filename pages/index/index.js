@@ -1,7 +1,7 @@
 const app = getApp();
-import services from '../../utils/services';
-import util from '../../utils/util'
-import helpers from '../helpers/index';
+import { fetch } from '../../utils/services';
+import { timesAgo } from '../../utils/util'
+import { formateActionType } from '../helpers/index';
 
 Page({
   data: {
@@ -40,17 +40,19 @@ Page({
   },
 
   fetchEventsData(url) {
-    services.fetch(url).then(res => {
-      if (res.data) {
+    fetch(url).then(res => {
+      if (res.statusCode === 200) {
           res.data.forEach(item => {
-          item.type = helpers.formateActionType(item.type);
-          item.created_at = util.timesAgo(item.created_at);
+          item.type = formateActionType(item.type);
+          item.created_at = timesAgo(item.created_at);
         });
         this.setData({
           items: this.data.items.concat(res.data)
         });
-        this.hideLoadingToast();
+      } else {
+        console.log('# Request Error #', res);
       }
+      this.hideLoadingToast();
     });
   },
 
@@ -69,14 +71,13 @@ Page({
   },
 
   showLoadingToast() {
-    wx.showToast({
+    wx.showLoading({
       title: 'Loading',
-      icon: 'loading', 
-      duration: 10000
+      mask: true
     });
   },
 
   hideLoadingToast() {
-    wx.hideToast();
+    wx.hideLoading();
   }
 });

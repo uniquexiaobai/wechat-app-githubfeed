@@ -7,7 +7,7 @@ scroll-view {
 }
 .received_events {
   border-bottom: 1rpx solid #E2E2E2;
-  padding: 20rpx;
+  padding: 15rpx;
 }
 .actor_avatar {
   width: 80rpx;

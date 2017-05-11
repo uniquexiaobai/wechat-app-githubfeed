@@ -1,11 +1,12 @@
 const app = getApp();
-import services from '../../utils/services';
+import { fetch } from '../../utils/services';
+import languageList from '../../utils/language_list';
 
 Page({
   data: {
-    languageArray: ['All Languages', 'C', 'CSS', 'Go', 'HTML', 'Java', 'JavaScript', 'Lua', 'Objective-C', 'Perl', 'PHP', 'Python', 'R', 'Ruby', 'Scala', 'Shell', 'Swift'],
+    languageList: languageList,
     languageIndex: 0,
-    tabArray: ['Daily', 'Weekly', 'Monthly'],
+    tabList: ['Daily', 'Weekly', 'Monthly'],
     tabIndex: 0
   },
 
@@ -18,13 +19,14 @@ Page({
   },
 
    _reloadUrl() {
-    const basic_url = 'http://trending.codehub-app.com/v2/trending?since=';
+    // const basic_url = 'http://trending.codehub-app.com/v2/trending?since=';
+    const basic_url = 'https://arguments.cn/api/trending?since=';
 
     // locationIndex may be 0 or '0'
     if (this.data.languageIndex == 0) {
-      return basic_url + this.data.tabArray[this.data.tabIndex].toLowerCase();
+      return basic_url + this.data.tabList[this.data.tabIndex].toLowerCase();
     }
-    return `${basic_url}${this.data.tabArray[this.data.tabIndex].toLowerCase()}&language=${this.data.languageArray[this.data.languageIndex].toLowerCase()}`;
+    return `${basic_url}${this.data.tabList[this.data.tabIndex].toLowerCase()}&language=${this.data.languageList[this.data.languageIndex].toLowerCase()}`;
   },
 
   handleLanguagePickerChange(e) {
@@ -43,11 +45,13 @@ Page({
 
   fetchReposData(url) {
     this.showLoadingToast();
-    services.fetch(url).then(res => {
-      if (res.data) {
+    fetch(url).then(res => {
+      if (res.statusCode === 200) {
         this.setData({ items: res.data });
-        this.hideLoadingToast();
+      } else {
+        console.log('# Request Error #', res);
       }
+      this.hideLoadingToast();
     });
   },
 
@@ -56,14 +60,13 @@ Page({
   },
 
   showLoadingToast() {
-    wx.showToast({
+    wx.showLoading({
       title: 'Loading',
-      icon: 'loading', 
-      duration: 10000
+      mask: true
     });
   },
 
   hideLoadingToast() {
-    wx.hideToast();
+    wx.hideLoading();
   }
 });

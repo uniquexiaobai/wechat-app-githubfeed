@@ -1,24 +1,22 @@
-export default {
-  timesAgo(date) {
-    const currentDate = new Date();
-    const ghDate = new Date(date);
+export const debounce = (fn, delay) => {
+  let timer, context, args;
 
-    return timeDifference(currentDate.getTime(), ghDate.getTime());
-  },
+  return function () {
+    context = this;
+    args = arguments;
 
-  // fix bug: Uncaught TypeError: Cannot read property 'apply' of undefined
-  debounce: function(func, wait) {
-    let timeout, context, args;
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn.apply(context, args);
+    }, delay);
+  };
+};
 
-    return function() {
-      context = this;
-      args = arguments;
-      if (timeout) clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        func.apply(context, args);
-      }, wait);
-    }
-  }
+export const timesAgo = (date) => {
+  const currentDate = new Date();
+  const ghDate = new Date(date);
+
+  return timeDifference(currentDate.getTime(), ghDate.getTime());
 };
 
 const timeDifference = (current, previous) => {

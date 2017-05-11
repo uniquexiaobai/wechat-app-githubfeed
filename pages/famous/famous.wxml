@@ -1,14 +1,14 @@
 <view class="container">
   <view class="col famous">
     <view class="col pickers">
-      <picker bindchange="handleLocationPickerChange" value="{{locationIndex}}" range="{{locationArray}}">
+      <picker bindchange="handleLocationPickerChange" value="{{locationIndex}}" range="{{locationList}}">
         <view class="picker_text">
-          挑选地区：{{locationArray[locationIndex]}}
+          挑选地区：{{locationList[locationIndex]}}
         </view>
       </picker>
-      <picker bindchange="handleLanguagePickerChange" value="{{languageIndex}}" range="{{languageArray}}">
+      <picker bindchange="handleLanguagePickerChange" value="{{languageIndex}}" range="{{languageList}}">
         <view class="picker_text">
-          挑选语言：{{languageArray[languageIndex]}}
+          挑选语言：{{languageList[languageIndex]}}
         </view>
       </picker>
     </view>

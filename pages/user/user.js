@@ -1,4 +1,4 @@
-import services from '../../utils/services';
+import { fetch } from '../../utils/services';
 
 Page({
   onLoad(options) {
@@ -20,35 +20,34 @@ Page({
     let user;
 
     this.showLoadingToast();
-    services.fetch(url).then(res => {
-      if (res.data) {
+    fetch(url).then(res => {
+      if (res.statusCode === 200) {
         user = res.data;
-        return services.fetch(user.organizations_url);
+        return fetch(user.organizations_url);
       }
     }).then(res => {
-      if (res.data) {
+      if (res.statusCode === 200) {
         user.orgs = res.data;
-        return services.fetch(`${user.repos_url}?sort=updated`);
+        return fetch(`${user.repos_url}?sort=updated`);
       }
     }).then(res => {
-      if (res.data) {
+      if (res.statusCode === 200) {
         user.repos = res.data;
         console.log('#user#', user);
         this.setData({ user: user });
-        this.hideLoadingToast();
       }
+      this.hideLoadingToast();
     });
   },
 
   showLoadingToast() {
-    wx.showToast({
+    wx.showLoading({
       title: 'Loading',
-      icon: 'loading', 
-      duration: 10000
+      mask: true
     });
   },
 
   hideLoadingToast() {
-    wx.hideToast();
+    wx.hideLoading();
   }
 });

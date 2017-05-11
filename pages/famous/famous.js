@@ -1,12 +1,14 @@
 const app = getApp();
-import services from '../../utils/services';
+import { fetch } from '../../utils/services';
+import languageList from '../../utils/language_list';
+import countryList from '../../utils/country_list';
 
 Page({
   data: {
-    locationArray: ['All Countries', 'Australia', 'China', 'Canada', 'France', 'Germany', 'India', 'Japan', 'UK', 'USA'],
+    locationList: countryList,
     locationIndex: 2,
-    languageArray: ['All Languages', 'ActionScript', 'C', 'C#', 'C++', 'Clojure', 'CoffeeScript', 'CSS', 'Go', 'Haskell', 'HTML', 'Java', 'JavaScript', 'Lua', 'Matlab', 'Objective-C', 'Objective-C++', 'Perl', 'PHP', 'Python', 'R', 'Ruby', 'Scala', 'Shell', 'Swift', 'TeX', 'VimL'],
-    languageIndex: 0,
+    languageList: languageList,
+    languageIndex: 12,
     items: [],
     page: 1,
     incomplete_results: false
@@ -25,12 +27,12 @@ Page({
 
     // locationIndex may be 0 or '0'
     if (this.data.locationIndex == 0) {
-      return `${basic_url}language:${this.data.languageArray[this.data.languageIndex]}&sort=followers&page=${this.data.page}`;
+      return `${basic_url}language:${this.data.languageList[this.data.languageIndex]}&sort=followers&page=${this.data.page}`;
     }
     if (this.data.languageIndex == 0) {
-      return `${basic_url}location:${this.data.locationArray[this.data.locationIndex]}&sort=followers&page=${this.data.page}`;
+      return `${basic_url}location:${this.data.locationList[this.data.locationIndex]}&sort=followers&page=${this.data.page}`;
     }
-    return `${basic_url}location:${this.data.locationArray[this.data.locationIndex]}+language:${this.data.languageArray[this.data.languageIndex]}&sort=followers&page=${this.data.page}`;
+    return `${basic_url}location:${this.data.locationList[this.data.locationIndex]}+language:${this.data.languageList[this.data.languageIndex]}&sort=followers&page=${this.data.page}`;
   },
 
   _initData() {
@@ -43,15 +45,17 @@ Page({
 
   fetchUsersData(url) {
     this.showLoadingToast();
-    services.fetch(url).then(res => {
-      if (res.data) {
+    fetch(url).then(res => {
+      if (res.statusCode === 200) {
         this.setData({
           items: this.data.items.concat(res.data.items),
           page: 1,
           incomplete_results: res.data.incomplete_results
         });
-        this.hideLoadingToast();
+      } else {
+        console.log('# Request Error #', res);
       }
+      this.hideLoadingToast();
     });
   },
 
@@ -89,14 +93,13 @@ Page({
   },
 
   showLoadingToast() {
-    wx.showToast({
+    wx.showLoading({
       title: 'Loading',
-      icon: 'loading', 
-      duration: 10000
+      mask: true
     });
   },
 
   hideLoadingToast() {
-    wx.hideToast();
+    wx.hideLoading();
   }
 });
